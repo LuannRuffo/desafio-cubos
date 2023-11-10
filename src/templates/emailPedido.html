@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pedido</title>
+    <style>
+*{
+    margin: 0;
+    padding: 0;
+}
+
+table td, table th {
+    padding-left: 30px;
+
+}
+
+#conteiner{
+    background-color: #fff;
+    width: 680px;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+#cabecalho {
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#icone {
+    font-size: 64px;
+    color: #33cc33;
+}
+
+#corpo{
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#id {
+    font-size: 24px;
+    color: #c26916;
+}
+
+#tabela {
+    margin-left: 26px;
+    width: 200px;
+    float: left;
+    text-align: center;
+}
+
+#rodape {
+    font-size: 14px;
+    margin-top: 15px;
+    clear: both;
+    text-align: center;
+}
+
+#total{
+    font-size: 20px;
+    width: 49%;
+    float: left;
+    background: #4641414f;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div id="conteiner">
+        <div id="cabecalho">
+            <i id="icone">&#10004</i>
+            Pedido feito com Sucesso
+        </div>
+
+        <div id="corpo">
+            <p>Obrigado pela compra <strong>{{nome}}</strong></p>
+            <p>numero do pedido: <br> <strong id="id">{{id}}</strong> </p>
+        </div>
+
+        <div id="tabela">
+            <table width="150">
+                <tr>
+                    <th>Produto</th>
+                    {{#each nomeProduto}}
+                        <tr>
+                        <td>{{this}}</td>
+                        </tr>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+        
+        <div id="tabela">
+            <table width="150">
+                <tr>
+                    <th>Quantidade</th>
+                    {{#each quantidadeProduto}}
+                        <tr>
+                        <td>{{this}}</td>
+                        </tr>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+        
+        <div id="tabela">
+            <table width="150">
+                <tr>
+                    <th>Preço Un.</th>
+                    {{#each valorProdutoUn}}
+                        <tr>
+                        <td>R${{this}}</td>
+                        </tr>
+                    {{/each}}
+                </tr>
+            </table>
+        </div>
+        <div id="total">
+Valor Total
+        </div>
+        <div id="total">
+R${{precoTotal}}
+        </div>
+        <div id="rodape">
+            Não responda esse e-mail.
+        </div>
+
+    </div>
+</body>
+</html>
